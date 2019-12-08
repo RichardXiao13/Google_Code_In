@@ -21,7 +21,11 @@ for folder in os.listdir(path):
 
             # Read and plot the shapefile
             city = geopandas.read_file(newPath)
-            city.plot()
+            if filename == "natural.shp":
+                axes = city.plot(edgecolors = "green", label = "natural")
+            else:
+                city.plot(ax = axes, label = "roads")
+
     else:
         continue
 
